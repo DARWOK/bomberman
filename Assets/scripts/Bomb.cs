@@ -1,0 +1,50 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Bomb : MonoBehaviour
+{
+    [Header ("Explotion Cast")]
+    [SerializeField] float sphereCastRad;
+    [SerializeField] LayerMask layerMask;
+
+    [Header ("Bomb Stats")]
+    [SerializeField] int range;
+    [SerializeField] float explosionTimer;
+    float spawnTime;
+
+    private void OnEnable()
+    {
+        spawnTime = Time.time;
+    }
+
+    void Update()
+    {
+        if (Time.time - spawnTime > explosionTimer)
+        {
+            Explode();
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position, sphereCastRad);
+    }
+
+    void Explode()
+    {
+        Ray ray = new Ray(transform.position, Vector3.right);
+        RaycastHit[] hits = Physics.SphereCastAll(ray, sphereCastRad, range, layerMask);
+        if (hits.Length > 0)
+        {
+            //Debug.Log(hits.Length);
+            foreach (RaycastHit hit in hits)
+            {
+                //Debug.Log(hit.transform.name);
+                if (hit.transform.tag == "Unbreakable") break;
+                hit.transform.gameObject.SetActive(false);
+                if (hit.transform.tag == "Breakable") break;
+            }
+        }
+    }
+}
