@@ -69,12 +69,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34082fc18aee83a4c8a25f47e4403daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridOffset: 4
+  spawnHeight: 2
   sphereCastRad: 0.2
   layerMask:
     serializedVersion: 2
     m_Bits: 55
   range: 100
-  explosionTimer: 1
+  explosionTimer: 2
 --- !u!95 &2624466196666239222
 Animator:
   serializedVersion: 7
@@ -107,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739822834030175632}
   - component: {fileID: 7859689514574017720}
+  - component: {fileID: 4818391685861895370}
   m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
@@ -194,6 +197,29 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &4818391685861895370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043017983194713182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &6321759426478232725
 GameObject:
   m_ObjectHideFlags: 0
